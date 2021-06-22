@@ -1,0 +1,39 @@
+@use '../utils' as*;
+
+.news {
+  &__list {
+    @include grid(1, 5rem);
+    margin-top: 3rem;
+    text-align: center;
+
+    @include mq(lg) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+  }
+
+  &__item {
+    padding: 3rem;
+    border-radius: border-radius(s);
+    box-shadow: box-shadow(m);
+    border: 0.3rem solid $bg-color;
+    @extend %transition;
+
+    &:hover {
+      border-color: $main-color;
+    }
+
+    a {
+      color: $gray-color;
+    }
+    &:hover a {
+      color: $main-color;
+    }
+  }
+
+  &__imageBox {
+    position: relative;
+    height: 18rem;
+    margin-bottom: 3rem;
+  }
+}

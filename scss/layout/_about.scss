@@ -1,0 +1,115 @@
+@use '../utils' as*;
+
+.about {
+  @include flex(column);
+
+  @include mq(lg) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  &__text {
+    width: 100%;
+    margin-bottom: 6rem;
+
+    @include mq(lg) {
+      margin-bottom: 0;
+      margin-left: 8rem;
+    }
+  }
+
+  &__imageBox {
+    position: relative;
+    width: 100%;
+    @include grid(1);
+
+    @include mq(lg) {
+      min-width: 56rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      grid-template-rows: repeat(4, 12rem);
+    }
+
+    @include pseudo($top: -5%, $left: -40%, $width: 110%, $height: 130%) {
+      border-radius: 50%;
+      background: $silver-color;
+    }
+  }
+
+  &__card {
+    position: relative;
+    height: 25rem;
+    background: $bg-color;
+    border-radius: border-radius(s);
+    box-shadow: box-shadow(m);
+    overflow: hidden;
+
+    &:nth-of-type(1) {
+      @include mq(lg) {
+        grid-row: 2/3;
+      }
+    }
+
+    &:nth-of-type(2) {
+      @include mq(lg) {
+        grid-column: 2/3;
+      }
+    }
+
+    &:nth-of-type(3) {
+      @include mq(lg) {
+        grid-column: 2/3;
+        grid-row: 3/4;
+      }
+    }
+
+    &:nth-of-type(4) {
+      @include mq(lg) {
+        grid-column: 3/4;
+        grid-row: 2/3;
+      }
+    }
+
+    @include pseudo() {
+      background: linear-gradient($main-color, $green-color);
+      transform: skewX(-35.5deg) translateY(-100%);
+      transform-origin: top;
+      @extend %transition;
+    }
+
+    @include pseudo($location: after) {
+      background: linear-gradient($green-color, $main-color);
+      transform: skewX(-35.5deg) translateY(100%);
+      transform-origin: bottom;
+      @extend %transition;
+    }
+
+    img {
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: auto;
+      height: 30%;
+      z-index: 1;
+      @extend %transition;
+
+      @include mq(lg) {
+        left: 30%;
+        transform: translateX(0);
+        width: 40%;
+        height: auto;
+      }
+    }
+
+    &:hover img {
+      filter: brightness(0) invert(1);
+    }
+    &:hover::before,
+    &:hover::after {
+      transform: skewX(-35.5deg) translateY(0);
+    }
+    &:hover h3 {
+      color: $bg-color !important;
+    }
+  }
+}

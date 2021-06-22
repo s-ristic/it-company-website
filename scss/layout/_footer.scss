@@ -1,0 +1,92 @@
+@use '../utils' as *;
+
+.footer {
+  position: relative;
+  padding: 5rem 3rem 17rem;
+  @include grid(1, 2rem);
+
+  @include mq(lg) {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5rem;
+    padding: 5rem 14rem 15rem;
+  }
+
+  &__logo {
+    position: relative;
+    width: 15rem;
+    height: 30rem;
+
+    a {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__column {
+    margin-top: 1rem;
+
+    @include mq(lg) {
+      margin-top: 6rem;
+    }
+
+    ul {
+      margin-top: 2.5rem;
+
+      li {
+        font-size: font-size(m);
+        color: $gray-color;
+        margin-bottom: 1.5rem;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__copyright {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 3rem;
+    @include flex(column-reverse, center, flex-start);
+    border-top: 0.2rem solid $gray-color;
+
+    @include mq(lg) {
+      padding: 3rem 14rem;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    p {
+      margin: 0;
+      font-size: font-size(s);
+    }
+
+    ul {
+      @include flex(column, center, flex-start);
+
+      @include mq(lg) {
+        flex-direction: row;
+      }
+
+      li {
+        font-size: font-size(m);
+        color: $gray-color;
+        cursor: pointer;
+        margin-bottom: 1rem;
+
+        @include mq(lg) {
+          margin-bottom: 0;
+          margin-left: 2rem;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

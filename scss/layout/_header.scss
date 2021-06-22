@@ -1,0 +1,158 @@
+@use '../utils' as *;
+
+.header {
+  padding: 2rem 3rem;
+
+  @include mq(lg) {
+    padding: 2rem 4rem;
+  }
+
+  &__logo {
+    position: relative;
+    width: 5rem;
+    height: 10rem;
+  }
+
+  &__nav {
+    position: relative;
+    @include flex($justify-content: space-between);
+
+    ul {
+      @include flex(column);
+      position: absolute;
+      top: 10rem;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 12rem);
+      background: $bg-color;
+      z-index: 1;
+      transform: scale(0);
+      transform-origin: top;
+      opacity: 0;
+      @extend %transition;
+
+      @include mq(lg) {
+        flex-direction: row;
+        position: initial;
+        top: initial;
+        left: initial;
+        height: initial;
+        background: initial;
+        z-index: initial;
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      li {
+        &:not(:last-of-type) {
+          margin: 2rem 0;
+
+          @include mq(lg) {
+            margin: 0 0 0 3rem;
+          }
+        }
+
+        &:last-of-type {
+          @include flex();
+          margin-top: 3rem;
+
+          @include mq(lg) {
+            margin-top: 0;
+            margin-left: auto;
+          }
+        }
+      }
+
+      a {
+        color: $dark-color;
+        @extend %transition;
+
+        &:hover {
+          color: $main-color;
+        }
+      }
+    }
+  }
+
+  &__navBtn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 5rem;
+    height: 5rem;
+    background: $main-color;
+    color: $bg-color;
+    font-size: font-size(xl);
+    @include flex();
+
+    @include mq(lg) {
+      display: none;
+    }
+
+    .fa-times {
+      display: none;
+    }
+  }
+  .menu--open {
+    .fa-times {
+      display: block;
+    }
+    .fa-bars {
+      display: none;
+    }
+
+    .header__menu {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  &__search {
+    font-size: font-size(l);
+    padding-right: 2rem;
+    border-right: 0.3rem solid $main-color;
+    color: $dark-color;
+  }
+
+  &__language {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    font-size: font-size(m);
+    color: $dark-color;
+    cursor: pointer;
+
+    @include mq(lg) {
+      margin-right: 4rem;
+    }
+  }
+
+  &__content {
+    @include flex(column);
+    margin-top: 5rem;
+
+    @include mq(lg) {
+      flex-direction: row;
+      padding: 10rem;
+    }
+  }
+
+  &__text {
+    width: 100%;
+
+    @include mq(lg) {
+      width: 35%;
+      margin-right: 5%;
+    }
+  }
+
+  &__imageBox {
+    position: relative;
+    width: 100%;
+    height: 35rem;
+
+    @include mq(lg) {
+      width: 60%;
+    }
+  }
+}

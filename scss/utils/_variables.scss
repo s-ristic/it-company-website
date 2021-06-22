@@ -1,0 +1,67 @@
+$main-color: #02a0a1;
+$dark-color: #4e525d;
+$bg-color: #fff;
+$green-color: #03b39a;
+$gray-color: #929698;
+$silver-color: #f8f8f8;
+$main-transparent: rgba(1, 160, 160, 0.2);
+$main-transparent-hard: rgba(1, 160, 160, 0.5);
+$fb-color: #3b5998;
+$tw-color: #00aced;
+$go-color: #db4437;
+
+$font-sizes: (
+  'xs': 1rem,
+  's': 1.2rem,
+  'm': 1.6rem,
+  'l': 1.8rem,
+  'xl': 2.4rem,
+  'xxl': 4rem,
+  'xxxl': 6rem,
+);
+
+$font-weights: (
+  'regular': 400,
+  'bold': 700,
+);
+
+$font-families: (
+  'sans-serif': #{'Ubuntu',
+  sans-serif},
+);
+
+$border-radius: (
+  's': 0.7rem,
+  'm': 1.2rem,
+  'l': 3rem,
+  'round': 5rem,
+  'circle': 50%,
+);
+
+$box-shadows: (
+  's': 0 0.5rem 1rem rgba(0, 0, 0, 0.3),
+  'm': 0.5rem 1rem 5rem rgba(0, 0, 0, 0.05),
+  'mr': -0.5rem 1rem 5rem rgba(0, 0, 0, 0.05),
+  'main': 0 0 8rem $main-transparent-hard,
+);
+
+$opacities: (
+  1: 0.1,
+  2: 0.2,
+  5: 0.5,
+  7: 0.7,
+  10: 1,
+);
+
+$breakpoints: (
+  'xs': 360px,
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'hd': 1280px,
+  'fhd': 1920px,
+  'qhd': 2560px,
+  'uhd': 3840px,
+  'fivek': 5120px,
+  'eightk': 7680px,
+);
